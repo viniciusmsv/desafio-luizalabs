@@ -1,15 +1,15 @@
-package com.luizalabs.dto;
+package com.luizalabs.entity;
 
 import java.io.Serializable;
 import java.util.Set;
 
-public class ClientDTO implements Serializable {
+public class Client implements Serializable {
 
     private String nome;
     private String endereco;
     private String email;
 
-    private Set<ProductDTO> favoriteProducts;
+    private Set<Product> favoriteProducts;
 
     public String getNome() {
         return nome;
@@ -35,11 +35,11 @@ public class ClientDTO implements Serializable {
         this.email = email;
     }
 
-    public Set<ProductDTO> getFavoriteProducts() {
+    public Set<Product> getFavoriteProducts() {
         return favoriteProducts;
     }
 
-    public void setFavoriteProducts(Set<ProductDTO> favoriteProducts) {
+    public void setFavoriteProducts(Set<Product> favoriteProducts) {
         this.favoriteProducts = favoriteProducts;
     }
 }

@@ -1,9 +1,9 @@
-package com.luizalabs.dto;
+package com.luizalabs.entity;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class ProductDTO implements Serializable {
+public class Product implements Serializable {
 
     private Long id;
     private BigDecimal price;
