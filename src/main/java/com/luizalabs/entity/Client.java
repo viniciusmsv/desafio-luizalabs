@@ -1,13 +1,18 @@
 package com.luizalabs.entity;
 
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+
 import java.io.Serializable;
 import java.util.Set;
 
+@Entity
 public class Client implements Serializable {
 
+    @Id
+    private String email;
     private String nome;
     private String endereco;
-    private String email;
 
     private Set<Product> favoriteProducts;
 

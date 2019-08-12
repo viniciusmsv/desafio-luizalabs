@@ -1,24 +1,22 @@
 package com.luizalabs.entity;
 
+import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Entity;
+import org.mongodb.morphia.annotations.Id;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
+@Entity
 public class Product implements Serializable {
 
-    private Long id;
+    @Id
+    private ObjectId id;
     private BigDecimal price;
     private String image;
     private String brand;
     private String title;
     private Double reviewScore;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public BigDecimal getPrice() {
         return price;

@@ -19,7 +19,6 @@ public class ProductController {
     @Produces(MediaType.APPLICATION_JSON)
     public Client getTestService() {
         Product product = new Product();
-        product.setId(1l);
         product.setBrand("Sony");
         product.setTitle("PS4");
         Client client = new Client();
