@@ -1,7 +1,7 @@
 package com.luizalabs.controller;
 
-import com.luizalabs.dto.ClientDTO;
-import com.luizalabs.dto.ProductDTO;
+import com.luizalabs.entity.Client;
+import com.luizalabs.entity.Product;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -17,14 +17,14 @@ public class ProductController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public ClientDTO getTestService() {
-        ProductDTO product = new ProductDTO();
+    public Client getTestService() {
+        Product product = new Product();
         product.setId(1l);
         product.setBrand("Sony");
         product.setTitle("PS4");
-        ClientDTO client = new ClientDTO();
+        Client client = new Client();
         client.setNome("Vinicius");
-        client.setFavoriteProducts(new HashSet<ProductDTO>());
+        client.setFavoriteProducts(new HashSet<Product>());
         client.getFavoriteProducts().add(product);
         return client;
     }

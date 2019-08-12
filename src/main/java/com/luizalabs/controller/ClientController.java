@@ -1,15 +1,13 @@
 package com.luizalabs.controller;
 
-import com.luizalabs.dto.ClientDTO;
+import com.luizalabs.entity.Client;
 import com.luizalabs.service.ClientService;
 
-import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Path("/client")
-@RequestScoped
 public class ClientController {
 
     @Inject
@@ -17,29 +15,29 @@ public class ClientController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public ClientDTO save(ClientDTO client) {
+    public Client save(Client client) {
         return clientService.save(client);
     }
 
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ClientDTO find(@PathParam("id") Long id) {
-        ClientDTO client = new ClientDTO();
+    public Client find(@PathParam("id") Long id) {
+        Client client = new Client();
         return client;
     }
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
-    public ClientDTO update(ClientDTO client) {
+    public Client update(Client client) {
         return client;
     }
 
     @DELETE
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public ClientDTO delete(@PathParam("id") Long id) {
-        ClientDTO client = new ClientDTO();
+    public Client delete(@PathParam("id") Long id) {
+        Client client = new Client();
         return client;
     }
 }
