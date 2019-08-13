@@ -1,6 +1,7 @@
 package com.luizalabs.entity;
 
 import org.bson.types.ObjectId;
+import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 
@@ -17,6 +18,9 @@ public class Product implements Serializable {
     private String brand;
     private String title;
     private Double reviewScore;
+
+    @Embedded
+    private Client client;
 
     public BigDecimal getPrice() {
         return price;

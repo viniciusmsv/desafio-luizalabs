@@ -16,8 +16,6 @@ public class Client implements Serializable {
     private String nome;
     private String endereco;
 
-    private Set<Product> favoriteProducts;
-
     public Client() {
     }
 
@@ -55,13 +53,5 @@ public class Client implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Set<Product> getFavoriteProducts() {
-        return favoriteProducts;
-    }
-
-    public void setFavoriteProducts(Set<Product> favoriteProducts) {
-        this.favoriteProducts = favoriteProducts;
     }
 }
