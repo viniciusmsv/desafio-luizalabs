@@ -23,8 +23,9 @@ public class ClientService implements Serializable {
         return ((ObjectId)clientDAO.save(client).getId()).toHexString();
     }
 
-    public void delete(String id) {
+    public String delete(String id) {
         clientDAO.deleteById(new ObjectId(id));
+        return id;
     }
 
     public Client find(String id) {

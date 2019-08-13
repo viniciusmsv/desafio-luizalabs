@@ -36,7 +36,7 @@ public class ClientController {
     @DELETE
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public void delete(@PathParam("id") String id) {
-        clientService.delete(id);
+    public String delete(@PathParam("id") String id) {
+        return clientService.delete(id);
     }
 }

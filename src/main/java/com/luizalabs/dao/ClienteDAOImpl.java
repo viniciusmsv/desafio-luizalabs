@@ -12,7 +12,7 @@ import javax.inject.Inject;
 
 public class ClienteDAOImpl extends BasicDAO<Client, ObjectId> implements ClientDAO {
 
-    public static final String DB_NAME = "myMongoDb";
+    public static final String DB_NAME = "clients";
 
     @Inject
     protected ClienteDAOImpl(MongoClient mongoClient, Morphia morphia) {

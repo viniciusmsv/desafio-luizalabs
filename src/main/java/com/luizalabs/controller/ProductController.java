@@ -9,9 +9,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.HashSet;
 
-/**
- * Hello world!
- */
 @Path("/product")
 public class ProductController {
 
