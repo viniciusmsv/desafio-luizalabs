@@ -2,6 +2,7 @@ package com.luizalabs.configuration;
 
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
+import org.mongodb.morphia.Morphia;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
@@ -16,6 +17,14 @@ public class MongoConnection {
         MongoClientURI uri = new MongoClientURI("mongodb://root:root@localhost");
         MongoClient mongoClient = new MongoClient(uri);
         return mongoClient;
+    }
+
+    @Produces
+    @ApplicationScoped
+    public Morphia morphia() {
+        Morphia morphia = new Morphia();
+        morphia.mapPackage("com.luizalabs");
+        return morphia;
     }
 
 }
