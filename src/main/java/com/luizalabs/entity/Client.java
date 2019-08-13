@@ -1,5 +1,6 @@
 package com.luizalabs.entity;
 
+import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 
@@ -10,11 +11,27 @@ import java.util.Set;
 public class Client implements Serializable {
 
     @Id
+    private ObjectId id;
     private String email;
     private String nome;
     private String endereco;
 
     private Set<Product> favoriteProducts;
+
+    public Client() {
+    }
+
+    public String getId() {
+        return id.toHexString();
+    }
+
+    public void setId(ObjectId id) {
+        this.id = id;
+    }
+
+    public Client(String email) {
+        this.email = email;
+    }
 
     public String getNome() {
         return nome;

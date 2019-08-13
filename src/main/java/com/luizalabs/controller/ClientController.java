@@ -1,6 +1,7 @@
 package com.luizalabs.controller;
 
 import com.luizalabs.entity.Client;
+import com.luizalabs.exception.NegocioException;
 import com.luizalabs.service.ClientService;
 
 import javax.inject.Inject;
@@ -15,29 +16,27 @@ public class ClientController {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Client save(Client client) {
+    public String save(Client client) throws NegocioException {
         return clientService.save(client);
     }
 
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Client find(@PathParam("id") Long id) {
-        Client client = new Client();
-        return client;
+    public Client find(@PathParam("id") String id) {
+        return clientService.find(id);
     }
 
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
-    public Client update(Client client) {
-        return client;
+    public String update(Client client) throws NegocioException {
+        return clientService.update(client);
     }
 
     @DELETE
-    @Path("{id}")
+    @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Client delete(@PathParam("id") Long id) {
-        Client client = new Client();
-        return client;
+    public void delete(@PathParam("id") String id) {
+        clientService.delete(id);
     }
 }

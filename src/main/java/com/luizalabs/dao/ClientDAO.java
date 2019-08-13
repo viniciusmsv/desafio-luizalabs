@@ -1,12 +1,10 @@
 package com.luizalabs.dao;
 
 import com.luizalabs.entity.Client;
-import com.mongodb.MongoClient;
-import org.mongodb.morphia.Morphia;
+import org.bson.types.ObjectId;
+import org.mongodb.morphia.dao.DAO;
 
-public class ClientDAO extends BaseDAO<Client, String> {
+public interface ClientDAO extends DAO<Client, ObjectId> {
 
-    public ClientDAO(MongoClient mongoClient, Morphia morphia, String dbName) {
-//        super(mongoClient, morphia, dbName);
-    }
+    Boolean isEmailExists(String email);
 }
