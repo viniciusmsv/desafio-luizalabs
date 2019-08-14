@@ -3,12 +3,14 @@ package com.luizalabs.controller;
 import com.luizalabs.entity.Client;
 import com.luizalabs.exception.NegocioException;
 import com.luizalabs.service.ClientService;
+import io.swagger.annotations.Api;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 @Path("/client")
+@Api(value="/client" )
 public class ClientController {
 
     @Inject

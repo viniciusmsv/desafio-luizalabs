@@ -2,6 +2,7 @@ package com.luizalabs.controller;
 
 import com.luizalabs.entity.Product;
 import com.luizalabs.service.ProductService;
+import io.swagger.annotations.Api;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -9,6 +10,7 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Path("/product")
+@Api(value="/product" )
 public class ProductController {
 
     @Inject
