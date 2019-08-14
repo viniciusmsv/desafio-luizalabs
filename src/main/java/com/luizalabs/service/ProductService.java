@@ -2,7 +2,8 @@ package com.luizalabs.service;
 
 import com.luizalabs.dao.ProductDAO;
 import com.luizalabs.entity.Product;
-import com.luizalabs.util.NegocioValidator;
+import com.luizalabs.exception.NotFoundException;
+import com.luizalabs.util.Validator;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -20,14 +21,14 @@ public class ProductService {
     public Product productDetail(String id) {
         LOGGER.info("Buscando produto: " + id);
         Product product = productDAO.findWithPagination(id);
-        NegocioValidator.validate(product == null, "Produto não pode ser encontrado.");
+        Validator.validate(product == null, new NotFoundException("Produto não pode ser encontrado."));
         return product;
     }
 
     public List<Product> listProducts(Integer page) {
         LOGGER.info("Listando clientes pagina: " + page);
         List<Product> products = productDAO.findWithPagination(page);
-        NegocioValidator.validate(products.isEmpty(), "Nenhum produto encontrado.");
+        Validator.validate(products.isEmpty(), new NotFoundException("Nenhum produto encontrado."));
         return products;
     }
 }

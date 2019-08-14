@@ -3,7 +3,9 @@ package com.luizalabs.service;
 import com.luizalabs.dao.ClientDAO;
 import com.luizalabs.dao.ProductDAO;
 import com.luizalabs.entity.Client;
-import com.luizalabs.util.NegocioValidator;
+import com.luizalabs.exception.BusinessException;
+import com.luizalabs.exception.NotFoundException;
+import com.luizalabs.util.Validator;
 import dev.morphia.Key;
 import org.bson.types.ObjectId;
 
@@ -23,8 +25,10 @@ public class ClientService {
     ProductDAO productDAO;
 
     public String save(Client client) {
-        NegocioValidator.validate(clientDAO.isEmailExists(client.getEmail()), "Email já cadastrado!");
-        NegocioValidator.validate(!productDAO.allProductsExists(client.getFavoriteProducts()), "Um dos produtos não pode ser encontrado.");
+        Validator.validate(clientDAO.isEmailExists(client.getEmail()),  new BusinessException("Email já cadastrado!"));
+
+        Validator.validate(!productDAO.allProductsExists(client.getFavoriteProducts()),  new BusinessException("Um dos produtos não pode ser encontrado."));
+
         client.setId(null);
         Key<Client> key = clientDAO.save(client);
         String id = ((ObjectId)key.getId()).toHexString();
@@ -40,14 +44,18 @@ public class ClientService {
 
     public Client find(String id) {
         LOGGER.info("Buscando cliente: " + id);
-        return clientDAO.find(id);
+        Client client = clientDAO.find(id);
+        Validator.validate(client == null, new NotFoundException("Cliente não encontrado."));
+        return client;
     }
 
     public String update(Client client) {
         Client clientDB = clientDAO.find(client.getId());
-        NegocioValidator.validate(clientDB == null, "Cliente não encontrado.");
-        NegocioValidator.validate(!productDAO.allProductsExists(client.getFavoriteProducts()), "Um dos produtos não pode ser encontrado.");
-        ;
+
+        Validator.validate(clientDB == null, new NotFoundException("Cliente não encontrado."));
+
+        Validator.validate(!productDAO.allProductsExists(client.getFavoriteProducts()), new BusinessException("Um dos produtos não pode ser encontrado."));
+
         client.setEmail(clientDB.getEmail());
         Key<Client> key = clientDAO.save(client);
         String id = ((ObjectId)key.getId()).toHexString();

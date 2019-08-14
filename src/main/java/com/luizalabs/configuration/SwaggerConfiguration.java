@@ -16,7 +16,7 @@ public class SwaggerConfiguration extends Application {
         BeanConfig beanConfig = new BeanConfig();
         beanConfig.setVersion("1.0.0");
         beanConfig.setSchemes(new String[]{"http"});
-        beanConfig.setHost("http://localhost:8080");
+        beanConfig.setHost("localhost:8080");
         beanConfig.setBasePath("/desafio-luizalabs/api/");
         beanConfig.setResourcePackage("com.luizalabs");
         beanConfig.setTitle("Desafio LuizaLabs API");
