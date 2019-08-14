@@ -1,8 +1,10 @@
 package com.luizalabs.configuration;
 
+import com.luizalabs.util.Constants;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientURI;
-import org.mongodb.morphia.Morphia;
+import dev.morphia.Datastore;
+import dev.morphia.Morphia;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Produces;
@@ -27,4 +29,9 @@ public class MongoConnection {
         return morphia;
     }
 
+    @Produces
+    @ApplicationScoped
+    public Datastore datastore(){
+        return morphia().createDatastore(mongoClient(), Constants.DB_NAME);
+    }
 }

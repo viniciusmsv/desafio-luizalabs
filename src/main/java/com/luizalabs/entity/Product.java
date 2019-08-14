@@ -1,10 +1,11 @@
 package com.luizalabs.entity;
 
+import dev.morphia.annotations.Entity;
+import dev.morphia.annotations.Id;
 import org.bson.types.ObjectId;
-import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity(value = "products")
 public class Product implements Serializable {
@@ -63,5 +64,18 @@ public class Product implements Serializable {
 
     public void setReviewScore(Double reviewScore) {
         this.reviewScore = reviewScore;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return id.equals(product.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

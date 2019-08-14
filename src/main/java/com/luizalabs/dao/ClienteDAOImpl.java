@@ -1,32 +1,37 @@
 package com.luizalabs.dao;
 
 import com.luizalabs.entity.Client;
-import com.mongodb.MongoClient;
+import dev.morphia.Datastore;
+import dev.morphia.Key;
+import dev.morphia.query.Query;
 import org.bson.types.ObjectId;
-import org.mongodb.morphia.Morphia;
-import org.mongodb.morphia.dao.BasicDAO;
-import org.mongodb.morphia.query.Query;
-import org.mongodb.morphia.query.QueryResults;
 
 import javax.inject.Inject;
 
-public class ClienteDAOImpl extends BasicDAO<Client, ObjectId> implements ClientDAO {
-
-    public static final String DB_NAME = "luizalabs";
+public class ClienteDAOImpl implements ClientDAO {
 
     @Inject
-    protected ClienteDAOImpl(MongoClient mongoClient, Morphia morphia) {
-        super(mongoClient, morphia, DB_NAME);
-    }
-
+    Datastore datastore;
 
     @Override
     public Boolean isEmailExists(String email) {
-        Query<Client> query = this.createQuery();
-        query.and(
-                query.criteria("email").equal(email)
-        );
-        QueryResults<Client> clients = this.find(query);
-        return clients.count() > 0;
+        Query<Client> query = datastore.createQuery(Client.class);
+        query.field("email").equal(email);
+        return query.count() > 0;
+    }
+
+    @Override
+    public Key<Client> save(Client client) {
+        return datastore.save(client);
+    }
+
+    @Override
+    public void delete(Client client) {
+        datastore.delete(client);
+    }
+
+    @Override
+    public Client find(String id) {
+        return datastore.find(Client.class).field("_id").equal(new ObjectId(id)).first();
     }
 }

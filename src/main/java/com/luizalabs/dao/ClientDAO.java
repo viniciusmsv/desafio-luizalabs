@@ -1,10 +1,15 @@
 package com.luizalabs.dao;
 
 import com.luizalabs.entity.Client;
-import org.bson.types.ObjectId;
-import org.mongodb.morphia.dao.DAO;
+import dev.morphia.Key;
 
-public interface ClientDAO extends DAO<Client, ObjectId> {
+public interface ClientDAO {
 
     Boolean isEmailExists(String email);
+
+    Key<Client> save(Client client);
+
+    void delete(Client client);
+
+    Client find(String client);
 }

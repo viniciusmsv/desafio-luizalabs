@@ -1,9 +1,9 @@
 package com.luizalabs.entity;
 
+import dev.morphia.annotations.Entity;
+import dev.morphia.annotations.Id;
+import dev.morphia.annotations.Reference;
 import org.bson.types.ObjectId;
-import org.mongodb.morphia.annotations.Entity;
-import org.mongodb.morphia.annotations.Id;
-import org.mongodb.morphia.annotations.Reference;
 
 import java.io.Serializable;
 import java.util.Set;
@@ -17,7 +17,7 @@ public class Client implements Serializable {
     private String nome;
     private String endereco;
 
-    @Reference("luizalabs")
+    @Reference(idOnly = true)
     private Set<Product> favoriteProducts;
 
     public Client() {
@@ -31,8 +31,8 @@ public class Client implements Serializable {
         this.id = id;
     }
 
-    public Client(String email) {
-        this.email = email;
+    public Client(String id) {
+        this.id = new ObjectId(id);
     }
 
     public String getNome() {

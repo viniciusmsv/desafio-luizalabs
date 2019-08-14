@@ -15,7 +15,7 @@ public class ExceptionHandling implements ExceptionMapper<Exception> {
                     .build();
         } else {
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
-                    .entity(exception.getCause() == null ? exception.getMessage() : exception.getCause().getMessage())
+                    .entity("Ops!!! Ocorreu um erro! =(")
                     .build();
         }
     }
