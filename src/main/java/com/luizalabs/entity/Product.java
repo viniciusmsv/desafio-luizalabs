@@ -1,32 +1,35 @@
 package com.luizalabs.entity;
 
 import org.bson.types.ObjectId;
-import org.mongodb.morphia.annotations.Embedded;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 
-@Entity
+@Entity(value = "products")
 public class Product implements Serializable {
 
     @Id
     private ObjectId id;
-    private BigDecimal price;
+    private Double price;
     private String image;
     private String brand;
     private String title;
     private Double reviewScore;
 
-    @Embedded
-    private Client client;
-
-    public BigDecimal getPrice() {
+    public Double getPrice() {
         return price;
     }
 
-    public void setPrice(BigDecimal price) {
+    public String getId() {
+        return id.toHexString();
+    }
+
+    public void setId(ObjectId id) {
+        this.id = id;
+    }
+
+    public void setPrice(Double price) {
         this.price = price;
     }
 

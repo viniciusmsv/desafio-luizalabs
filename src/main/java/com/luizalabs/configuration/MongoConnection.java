@@ -14,7 +14,7 @@ public class MongoConnection {
     @Produces
     @ApplicationScoped
     public MongoClient mongoClient() {
-        MongoClientURI uri = new MongoClientURI("mongodb://root:root@localhost");
+        MongoClientURI uri = new MongoClientURI("mongodb://root:root@localhost:27017");
         MongoClient mongoClient = new MongoClient(uri);
         return mongoClient;
     }

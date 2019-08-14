@@ -3,11 +3,12 @@ package com.luizalabs.entity;
 import org.bson.types.ObjectId;
 import org.mongodb.morphia.annotations.Entity;
 import org.mongodb.morphia.annotations.Id;
+import org.mongodb.morphia.annotations.Reference;
 
 import java.io.Serializable;
 import java.util.Set;
 
-@Entity
+@Entity(value = "clients", noClassnameStored = true)
 public class Client implements Serializable {
 
     @Id
@@ -16,6 +17,7 @@ public class Client implements Serializable {
     private String nome;
     private String endereco;
 
+    @Reference("luizalabs")
     private Set<Product> favoriteProducts;
 
     public Client() {

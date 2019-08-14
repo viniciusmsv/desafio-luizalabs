@@ -4,6 +4,7 @@ import com.luizalabs.dao.ClientDAO;
 import com.luizalabs.entity.Client;
 import com.luizalabs.exception.NegocioException;
 import org.bson.types.ObjectId;
+import org.mongodb.morphia.Key;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -19,7 +20,8 @@ public class ClientService {
             throw new NegocioException("Email já cadastrado!");
         }
         client.setId(null);
-        return ((ObjectId)clientDAO.save(client).getId()).toHexString();
+        Key<Client> key = clientDAO.save(client);
+        return ((ObjectId)key.getId()).toHexString();
     }
 
     public String delete(String id) {
@@ -34,6 +36,7 @@ public class ClientService {
     public String update(Client client) {
         Client clientDB = clientDAO.findOne("_id", new ObjectId(client.getId()));
         client.setEmail(clientDB.getEmail());
-        return ((ObjectId)clientDAO.save(client).getId()).toHexString();
+        Key<Client> key = clientDAO.save(client);
+        return ((ObjectId)key.getId()).toHexString();
     }
 }
