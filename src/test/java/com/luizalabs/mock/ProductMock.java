@@ -5,7 +5,9 @@ import com.luizalabs.entity.Product;
 import org.bson.types.ObjectId;
 import org.mockito.Mockito;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ProductMock {
 

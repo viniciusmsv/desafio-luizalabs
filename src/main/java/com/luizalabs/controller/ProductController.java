@@ -7,7 +7,7 @@ import io.swagger.annotations.*;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.List;
+import javax.ws.rs.core.Response;
 
 @Path("/product")
 @Api(value="/product" )
@@ -24,8 +24,8 @@ public class ProductController {
     @GET
     @Path("/{id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Product productDetail(@ApiParam(value = "ID do produto para ser detalhado.")@PathParam("id") String id) {
-        return productService.productDetail(id);
+    public Response productDetail(@ApiParam(value = "ID do produto para ser detalhado.")@PathParam("id") String id) {
+        return Response.ok().entity(productService.productDetail(id)).build();
     }
 
     @ApiOperation(value = "Lista os produtos paginados",
@@ -37,7 +37,7 @@ public class ProductController {
     })
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Product> listProducts(@ApiParam(value = "Número da página.") @QueryParam("page") Integer page) {
-        return productService.listProducts(page);
+    public Response listProducts(@ApiParam(value = "Número da página.") @QueryParam("page") Integer page) {
+        return Response.ok().entity(productService.listProducts(page)).build();
     }
 }
