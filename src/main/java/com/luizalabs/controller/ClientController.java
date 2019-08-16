@@ -42,7 +42,6 @@ public class ClientController {
     }
 
     @ApiOperation(value = "Atualiza dados de um cliente",
-            notes = "O email é o único campo que nao pode ser alterado",
             response = Client.class)
     @ApiResponses(value = {
             @ApiResponse(code = 404, message = "Cliente não encontrado."),
