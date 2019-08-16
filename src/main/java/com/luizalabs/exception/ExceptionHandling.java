@@ -5,10 +5,10 @@ import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 @Provider
-public class ExceptionHandling implements ExceptionMapper<Exception> {
+public class ExceptionHandling implements ExceptionMapper<Throwable> {
 
     @Override
-    public Response toResponse(Exception exception) {
+    public Response toResponse(Throwable exception) {
         if(exception.getCause() instanceof BusinessException) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity(exception.getCause().getMessage())

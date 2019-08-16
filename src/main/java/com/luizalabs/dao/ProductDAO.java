@@ -7,9 +7,9 @@ import java.util.Set;
 
 public interface ProductDAO {
 
-    Product findWithPagination(String id);
+    Product findById(String id);
 
     List<Product> findWithPagination(Integer page);
 
-    Boolean allProductsExists(Set<Product> ids);
+    Boolean  allProductsExists(Set<Product> ids);
 }

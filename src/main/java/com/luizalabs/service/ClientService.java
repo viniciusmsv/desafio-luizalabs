@@ -24,16 +24,20 @@ public class ClientService {
     @Inject
     ProductDAO productDAO;
 
-    public String save(Client client) {
+    public Client save(Client client) {
+
         Validator.validate(clientDAO.isEmailExists(client.getEmail()),  new BusinessException("Email já cadastrado!"));
 
-        Validator.validate(!productDAO.allProductsExists(client.getFavoriteProducts()),  new BusinessException("Um dos produtos não pode ser encontrado."));
+        if(client.getFavoriteProducts() != null && !client.getFavoriteProducts().isEmpty()) {
+            Validator.validate(!productDAO.allProductsExists(client.getFavoriteProducts()), new BusinessException("Um dos produtos não pode ser encontrado!"));
+        }
 
         client.setId(null);
         Key<Client> key = clientDAO.save(client);
         String id = ((ObjectId)key.getId()).toHexString();
+        client.setId(new ObjectId(id));
         LOGGER.info("Cliente salvo com sucesso: " + id);
-        return id;
+        return client;
     }
 
     public String delete(String id) {
@@ -45,21 +49,21 @@ public class ClientService {
     public Client find(String id) {
         LOGGER.info("Buscando cliente: " + id);
         Client client = clientDAO.find(id);
-        Validator.validate(client == null, new NotFoundException("Cliente não encontrado."));
+        Validator.validate(client == null, new NotFoundException("Cliente não encontrado!"));
         return client;
     }
 
-    public String update(Client client) {
+    public Client update(Client client) {
         Client clientDB = clientDAO.find(client.getId());
 
-        Validator.validate(clientDB == null, new NotFoundException("Cliente não encontrado."));
+        Validator.validate(clientDB == null, new NotFoundException("Cliente não encontrado!"));
 
-        Validator.validate(!productDAO.allProductsExists(client.getFavoriteProducts()), new BusinessException("Um dos produtos não pode ser encontrado."));
+        Validator.validate(!productDAO.allProductsExists(client.getFavoriteProducts()), new BusinessException("Um dos produtos não pode ser encontrado!"));
 
         client.setEmail(clientDB.getEmail());
         Key<Client> key = clientDAO.save(client);
         String id = ((ObjectId)key.getId()).toHexString();
         LOGGER.info("Cliente atualizado com sucesso: " + id);
-        return id;
+        return client;
     }
 }

@@ -20,15 +20,15 @@ public class ProductService {
 
     public Product productDetail(String id) {
         LOGGER.info("Buscando produto: " + id);
-        Product product = productDAO.findWithPagination(id);
-        Validator.validate(product == null, new NotFoundException("Produto não pode ser encontrado."));
+        Product product = productDAO.findById(id);
+        Validator.validate(product == null, new NotFoundException("Produto não pode ser encontrado!"));
         return product;
     }
 
     public List<Product> listProducts(Integer page) {
         LOGGER.info("Listando clientes pagina: " + page);
         List<Product> products = productDAO.findWithPagination(page);
-        Validator.validate(products.isEmpty(), new NotFoundException("Nenhum produto encontrado."));
+        Validator.validate(products.isEmpty(), new NotFoundException("Nenhum produto encontrado!"));
         return products;
     }
 }

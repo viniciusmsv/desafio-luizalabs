@@ -24,7 +24,7 @@ public class ClientController {
     })
     @POST
     @Produces(MediaType.TEXT_PLAIN)
-    public String save(@ApiParam(value = "Objeto Client a ser salvo.") Client client) throws BusinessException {
+    public Client save(@ApiParam(value = "Objeto Client a ser salvo.") Client client) throws BusinessException {
         return clientService.save(client);
     }
 
@@ -49,7 +49,7 @@ public class ClientController {
     })
     @PUT
     @Produces(MediaType.TEXT_PLAIN)
-    public String update(@ApiParam(value = "Objeto Client com os dados a serem atualizados.") Client client) throws BusinessException {
+    public Client update(@ApiParam(value = "Objeto Client com os dados a serem atualizados.") Client client) throws BusinessException {
         return clientService.update(client);
     }
 

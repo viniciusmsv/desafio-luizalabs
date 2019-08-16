@@ -16,7 +16,7 @@ public class ProductDAOImpl implements ProductDAO {
     Datastore datastore;
 
     @Override
-    public Product findWithPagination(String id) {
+    public Product findById(String id) {
         return datastore.find(Product.class).field("_id").equal(new ObjectId(id)).first();
     }
 

@@ -8,7 +8,7 @@ import org.bson.types.ObjectId;
 
 import javax.inject.Inject;
 
-public class ClienteDAOImpl implements ClientDAO {
+public class ClientDAOImpl implements ClientDAO {
 
     @Inject
     Datastore datastore;
