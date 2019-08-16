@@ -1,31 +1,43 @@
 package com.luizalabs.controller;
 
-import com.luizalabs.dto.ClientDTO;
-import com.luizalabs.dto.ProductDTO;
+import com.luizalabs.entity.Product;
+import com.luizalabs.service.ProductService;
+import io.swagger.annotations.*;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.inject.Inject;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.HashSet;
+import javax.ws.rs.core.Response;
 
-/**
- * Hello world!
- */
 @Path("/product")
+@Api(value="/product" )
 public class ProductController {
 
+    @Inject
+    ProductService productService;
+
+    @ApiOperation(value = "Detalhe os dados de um produto",
+            response = Product.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 404, message = "Produto não pode ser encontrado.")
+    })
+    @GET
+    @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response productDetail(@ApiParam(value = "ID do produto para ser detalhado.")@PathParam("id") String id) {
+        return Response.ok().entity(productService.productDetail(id)).build();
+    }
+
+    @ApiOperation(value = "Lista os produtos paginados",
+            response = Product.class,
+            responseContainer = "List"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(code = 404, message = "Nenhum produto encontrado.")
+    })
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public ClientDTO getTestService() {
-        ProductDTO product = new ProductDTO();
-        product.setId(1l);
-        product.setBrand("Sony");
-        product.setTitle("PS4");
-        ClientDTO client = new ClientDTO();
-        client.setNome("Vinicius");
-        client.setFavoriteProducts(new HashSet<ProductDTO>());
-        client.getFavoriteProducts().add(product);
-        return client;
+    public Response listProducts(@ApiParam(value = "Número da página.") @QueryParam("page") Integer page) {
+        return Response.ok().entity(productService.listProducts(page)).build();
     }
 }
