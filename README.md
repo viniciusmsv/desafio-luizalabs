@@ -28,7 +28,7 @@ Os requisitos abaixo será ser instalados addos no en
 
 #### SWAGGER - Documentação da API
 
-- Importar o projeto como maven projeto na IDE.
+- Importar o projeto como maven project na IDE.
 - Adicionar o servidor de aplicação, preferência WildFly.
 - Subir o servidor.
 - Acessar a ulr http://localhost:8080/desafio-luizalabs/swagger/#/
