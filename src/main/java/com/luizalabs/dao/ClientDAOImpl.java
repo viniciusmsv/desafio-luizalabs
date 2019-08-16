@@ -14,7 +14,7 @@ public class ClientDAOImpl implements ClientDAO {
     Datastore datastore;
 
     @Override
-    public Boolean isEmailExists(String email) {
+    public Boolean emailExists(String email) {
         Query<Client> query = datastore.createQuery(Client.class);
         query.field("email").equal(email);
         return query.count() > 0;

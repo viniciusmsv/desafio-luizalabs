@@ -5,7 +5,7 @@ import dev.morphia.Key;
 
 public interface ClientDAO {
 
-    Boolean isEmailExists(String email);
+    Boolean emailExists(String email);
 
     Key<Client> save(Client client);
 

@@ -16,7 +16,7 @@ public class ClientMock {
 
     public static void mock(ClientDAO clientDAO) {
 
-        Mockito.when(clientDAO.isEmailExists("jaexiste@teste.com")).thenReturn(Boolean.TRUE);
+        Mockito.when(clientDAO.emailExists("jaexiste@teste.com")).thenReturn(Boolean.TRUE);
         Mockito.when(clientDAO.save(build())).thenReturn(new Key<>(Client.class, "clients", new ObjectId(new Date())));
 
         Client client = build();
