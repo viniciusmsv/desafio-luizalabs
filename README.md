@@ -51,10 +51,10 @@ Foi implementado uma segurança básica, baseado no JWT (Json Web Token). A clas
 
 Não foi implementado a parte de armazenamento de senha do usuario. Por isso o usuário **admin** e senha **admin** estão hardcoded.
 
-### TESTES
+#### TESTES
 
 Foram testadas apenas as classes de serviço, no pacote service, isso porque toda a regra negocial fica nessa camada. Segue abaixo o relatorio do JACOCO.
 OBS: Para extrair o relatório basta executar o comando ``mvn test site -P jacoco``
 
-![Alt text](./assets/testes.png)
+![Alt Relatório Jacoco](./assets/testes.png)
 
