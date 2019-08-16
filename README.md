@@ -43,4 +43,4 @@ Os requisitos abaixo será ser instalados addos no en
   - product-postam
 - Executar o script a desejar.
 
-**OBS: Antes de chamar as API's, deve gerar um token no login. Com o token gerado, é necesário adicionar o header Authorization com o token nas requisições.**
+**OBS: Antes de chamar as API's, é preciso gerar um token no login. Com o token gerado, é necesário adicionar o header Authorization com o token nas requisições.**
