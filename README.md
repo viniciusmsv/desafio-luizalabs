@@ -14,7 +14,7 @@ Os requisitos abaixo será ser instalados addos no en
 ##### MONGODB
  
  - Subir o docker do MongoDB
-   - entrar na pasta do MongoDB dentro do projeto. Caminho: ${PROJETO}/docker/mongodb/
+   - entrar na pasta do MongoDB dentro do projeto. Caminho: ``${PROJETO}/docker/mongodb/``
    - editar o arquivo docker-compose.yml para trocar o volume onde será salvo os dados no host, caso necessário.
     ```
       ...
