@@ -4,16 +4,19 @@ import com.luizalabs.exception.AccessDeniedException;
 import com.luizalabs.security.Credentials;
 import com.luizalabs.security.JWTUtil;
 import com.luizalabs.service.TokenService;
+import com.luizalabs.util.CDIExtension;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@ExtendWith(CDIExtension.class)
 public class TokenServiceTest {
 
     @InjectMocks

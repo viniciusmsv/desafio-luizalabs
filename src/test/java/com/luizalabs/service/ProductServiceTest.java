@@ -4,8 +4,10 @@ import com.luizalabs.dao.ProductDAO;
 import com.luizalabs.entity.Product;
 import com.luizalabs.exception.NotFoundException;
 import com.luizalabs.mock.ProductMock;
+import com.luizalabs.util.CDIExtension;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
@@ -15,6 +17,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+@ExtendWith(CDIExtension.class)
 public class ProductServiceTest {
 
     @InjectMocks
