@@ -17,7 +17,7 @@ public class ProductController {
     ProductService productService;
 
     @ApiOperation(value = "Detalhe os dados de um produto",
-            response = String.class)
+            response = Product.class)
     @ApiResponses(value = {
             @ApiResponse(code = 404, message = "Produto não pode ser encontrado.")
     })
@@ -29,7 +29,9 @@ public class ProductController {
     }
 
     @ApiOperation(value = "Lista os produtos paginados",
-            response = String.class)
+            response = Product.class,
+            responseContainer = "List"
+    )
     @ApiResponses(value = {
             @ApiResponse(code = 404, message = "Nenhum produto encontrado.")
     })

@@ -17,7 +17,7 @@ public class ClientController {
     private ClientService clientService;
 
     @ApiOperation(value = "Salva um novo cliente",
-            response = String.class)
+            response = Client.class)
     @ApiResponses(value = {
             @ApiResponse(code = 400, message = "Email já cadastrado!"),
             @ApiResponse(code = 400, message = "Um dos produtos não pode ser encontrado.")
@@ -42,7 +42,7 @@ public class ClientController {
 
     @ApiOperation(value = "Atualiza dados de um cliente",
             notes = "O email é o único campo que nao pode ser alterado",
-            response = String.class)
+            response = Client.class)
     @ApiResponses(value = {
             @ApiResponse(code = 404, message = "Cliente não encontrado."),
             @ApiResponse(code = 400, message = "Um dos produtos não pode ser encontrado.")
