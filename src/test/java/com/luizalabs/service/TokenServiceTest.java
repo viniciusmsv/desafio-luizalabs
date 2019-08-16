@@ -1,4 +1,4 @@
-package com.luizalabs.controller;
+package com.luizalabs.service;
 
 import com.luizalabs.exception.AccessDeniedException;
 import com.luizalabs.security.Credentials;
@@ -14,7 +14,7 @@ import org.mockito.MockitoAnnotations;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class TokenControllerTest {
+public class TokenServiceTest {
 
     @InjectMocks
     private TokenService tokenService;
