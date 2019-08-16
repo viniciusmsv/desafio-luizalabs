@@ -44,3 +44,17 @@ Os requisitos abaixo será ser instalados addos no en
 - Executar o script a desejar.
 
 **OBS: Antes de chamar as API's, é preciso gerar um token no login. Com o token gerado, é necesário adicionar o header Authorization com o token nas requisições.**
+
+#### SEGURANÇA
+
+Foi implementado uma segurança básica, baseado no JWT (Json Web Token). A classe JWTFilter fica responsável por interceptar os requests e verificar se o token passado no Header Authorization é válido, conferindo as credenciais.
+
+Não foi implementado a parte de armazenamento de senha do usuario. Por isso o usuário **admin** e senha **admin** estão hardcoded.
+
+### TESTES
+
+Foram testadas apenas as classes de serviço, no pacote service, isso porque toda a regra negocial fica nessa camada. Segue abaixo o relatorio do JACOCO.
+OBS: Para extrair o relatório basta executar o comando ``mvn test site -P jacoco``
+
+![Alt text](./assets/testes.png)
+
