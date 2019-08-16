@@ -37,7 +37,7 @@ Os requisitos abaixo será ser instalados addos no en
 - Importar o projeto como maven projeto na IDE.
 - Adicionar o servidor de aplicação, preferência WildFly.
 - Subir o servidor.
-- Importar os arquivos para p Postman:
+- Importar os arquivos para o Postman. Os arquivos podem ser encontrados no caminho ``${PROJETO}/postman``
   - loging-postman
   - client-postman
   - product-postam
