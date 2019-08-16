@@ -58,7 +58,7 @@ public class ClientService {
 
         Validator.validate(clientDB == null, new NotFoundException("Cliente não encontrado!"));
 
-        Validator.validate(clientDAO.emailExists(client.getEmail()),  new BusinessException("Email já cadastrado!"));
+        Validator.validate(clientDAO.emailExists(client.getEmail()) && !clientDB.getEmail().equals(client.getEmail()),  new BusinessException("Email já cadastrado!"));
 
         if(client.getFavoriteProducts() != null && !client.getFavoriteProducts().isEmpty()) {
             Validator.validate(!productDAO.allProductsExists(client.getFavoriteProducts()), new BusinessException("Um dos produtos não pode ser encontrado!"));

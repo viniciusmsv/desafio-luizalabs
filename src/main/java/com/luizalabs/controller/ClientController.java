@@ -25,7 +25,7 @@ public class ClientController {
     })
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Response save(@ApiParam(value = "Objeto Client a ser salvo.") Client client) throws BusinessException {
+    public Response save(@ApiParam(value = "Objeto Client a ser salvo.") Client client) {
         return Response.ok().entity(clientService.save(client)).build();
     }
 
@@ -49,7 +49,7 @@ public class ClientController {
     })
     @PUT
     @Produces(MediaType.APPLICATION_JSON)
-    public Response update(@ApiParam(value = "Objeto Client com os dados a serem atualizados.") Client client) throws BusinessException {
+    public Response update(@ApiParam(value = "Objeto Client com os dados a serem atualizados.") Client client) {
         return Response.ok().entity(clientService.update(client)).build();
     }
 
