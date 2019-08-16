@@ -43,7 +43,7 @@ Os requisitos abaixo será ser instalados addos no en
   - product-postam
 - Executar o script a desejar.
 
-**OBS: Antes de chamar as API's, é preciso gerar um token no login. Com o token gerado, é necesário adicionar o header Authorization com o token nas requisições.**
+***OBS: Antes de chamar as API's, é preciso gerar um token no login. Com o token gerado, é necesário adicionar o header Authorization com o token nas requisições.***
 
 #### SEGURANÇA
 
@@ -53,8 +53,9 @@ Não foi implementado a parte de armazenamento de senha do usuario. Por isso o u
 
 #### TESTES
 
-Foram testadas apenas as classes de serviço, no pacote service, isso porque toda a regra negocial fica nessa camada. Segue abaixo o relatorio do JACOCO.
-OBS: Para extrair o relatório basta executar o comando ``mvn test site -P jacoco``
+Foram testadas apenas as classes de serviço, no pacote service, isso porque toda a regra negocial fica nessa camada. Segue abaixo o relatório do **JACOCO**.
+
+***OBS: Para extrair o relatório basta executar o comando ``mvn test site -P jacoco``***
 
 ![Alt Relatório Jacoco](./assets/testes.png)
 
