@@ -58,9 +58,12 @@ public class ClientService {
 
         Validator.validate(clientDB == null, new NotFoundException("Cliente não encontrado!"));
 
-        Validator.validate(!productDAO.allProductsExists(client.getFavoriteProducts()), new BusinessException("Um dos produtos não pode ser encontrado!"));
+        Validator.validate(clientDAO.isEmailExists(client.getEmail()),  new BusinessException("Email já cadastrado!"));
 
-        client.setEmail(clientDB.getEmail());
+        if(client.getFavoriteProducts() != null && !client.getFavoriteProducts().isEmpty()) {
+            Validator.validate(!productDAO.allProductsExists(client.getFavoriteProducts()), new BusinessException("Um dos produtos não pode ser encontrado!"));
+        }
+
         Key<Client> key = clientDAO.save(client);
         String id = ((ObjectId)key.getId()).toHexString();
         LOGGER.info("Cliente atualizado com sucesso: " + id);
