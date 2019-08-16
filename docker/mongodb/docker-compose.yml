@@ -24,7 +24,7 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - /mnt/WDC-1TB/Desenv/Banco/mongodb:/data/db
+      - /tmp/mongodb:/data/db
     networks:
       - mongo-compose-network
 

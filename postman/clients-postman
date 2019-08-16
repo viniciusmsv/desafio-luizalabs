@@ -14,11 +14,16 @@
 						"key": "Content-Type",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiJ9.H_ILSDiAbyAFPKygwcL0w8CJshwUgEE1aVXG85I9tfISgASBxXMf6mkB0O86z5b7USnEVXdCC_2sK4XMcO4Kmg",
+						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"nome\":\"vinicius\",\"endereco\":\"teste endereco\",\"email\":\"vinicius.msv@gmail.com\",\"favoriteProducts\":null}"
+					"raw": "{\"nome\":\"vinicius\",\"endereco\":\"teste endereco\",\"email\":\"vinicius.msv1@gmail.com\",\"favoriteProducts\":[\n\t{\n        \"id\": \"5d535db2fba5fa6c2473f4cb\"\n    }]\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/desafio-luizalabs/api/client",
@@ -45,11 +50,16 @@
 						"key": "Content-Type",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiJ9.H_ILSDiAbyAFPKygwcL0w8CJshwUgEE1aVXG85I9tfISgASBxXMf6mkB0O86z5b7USnEVXdCC_2sK4XMcO4Kmg",
+						"type": "text"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"id\": \"5d5223943e1e4c062a7475f3\",\"nome\":\"vinicius\",\"endereco\":\"teste endereco 1\",\"email\":\"vinicius.ms@gmail.com\",\"favoriteProducts\":null}"
+					"raw": "{\"id\": \"5d560be04c27fb2f32e87cc9\", \"nome\":\"vin1ic1s\",\"endereco\":\"teste endereco\",\"email\":\"vinicius.msv11@gmail.com\",\"favoriteProducts\":[\n\t{\n        \"id\": \"5d535db2fba5fa6c2473f4cb\"\n    }]\n}"
 				},
 				"url": {
 					"raw": "http://localhost:8080/desafio-luizalabs/api/client",
@@ -76,10 +86,15 @@
 						"key": "Content-Type",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiJ9.H_ILSDiAbyAFPKygwcL0w8CJshwUgEE1aVXG85I9tfISgASBxXMf6mkB0O86z5b7USnEVXdCC_2sK4XMcO4Kmg",
+						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/desafio-luizalabs/api/client/5d5223943e1e4c062a7475f3",
+					"raw": "http://localhost:8080/desafio-luizalabs/api/client/5d560be04c27fb2f32e87cc9",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -89,7 +104,7 @@
 						"desafio-luizalabs",
 						"api",
 						"client",
-						"5d5223943e1e4c062a7475f3"
+						"5d560be04c27fb2f32e87cc9"
 					]
 				}
 			},
@@ -104,10 +119,15 @@
 						"key": "Content-Type",
 						"value": "application/json",
 						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiJ9.H_ILSDiAbyAFPKygwcL0w8CJshwUgEE1aVXG85I9tfISgASBxXMf6mkB0O86z5b7USnEVXdCC_2sK4XMcO4Kmg",
+						"type": "text"
 					}
 				],
 				"url": {
-					"raw": "http://localhost:8080/desafio-luizalabs/api/client/5d5223943e1e4c062a7475f3",
+					"raw": "http://localhost:8080/desafio-luizalabs/api/client/5d560be04c27fb2f32e87cc9",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -117,7 +137,7 @@
 						"desafio-luizalabs",
 						"api",
 						"client",
-						"5d5223943e1e4c062a7475f3"
+						"5d560be04c27fb2f32e87cc9"
 					]
 				}
 			},

@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "aa963e58-a470-4b7b-9be0-49df03ad27cb",
+		"name": "login",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"admin\",\n\t\"token\": \"\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/desafio-luizalabs/api/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"desafio-luizalabs",
+						"api",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
