@@ -23,7 +23,7 @@ public class ClientController {
             @ApiResponse(code = 400, message = "Um dos produtos não pode ser encontrado.")
     })
     @POST
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public Client save(@ApiParam(value = "Objeto Client a ser salvo.") Client client) throws BusinessException {
         return clientService.save(client);
     }
@@ -48,7 +48,7 @@ public class ClientController {
             @ApiResponse(code = 400, message = "Um dos produtos não pode ser encontrado.")
     })
     @PUT
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     public Client update(@ApiParam(value = "Objeto Client com os dados a serem atualizados.") Client client) throws BusinessException {
         return clientService.update(client);
     }
