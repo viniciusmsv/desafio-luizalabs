@@ -19,8 +19,6 @@ import org.mockito.MockitoAnnotations;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-;
-
 @ExtendWith(CDIExtension.class)
 public class ClientServiceTest {
 
